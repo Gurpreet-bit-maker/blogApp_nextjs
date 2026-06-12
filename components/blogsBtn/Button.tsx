@@ -2,8 +2,8 @@
 import Link from "next/link";
 import React, { useState } from "react";
 
-function Button({ blogId }: { blogId: number }) {
-  let [blogNum, setBlogNum] = useState<number>();
+function Button({ blogId }: { blogId: string }) {
+  let [blogNum, setBlogNum] = useState<string>();
   console.log(blogId);
   return (
     <div className="flex justify-center">
