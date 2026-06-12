@@ -1,7 +1,10 @@
 import connectDb from "@/app/lib/mongodbConnection";
 import Blogmodel from "@/app/lib/models/postmodel";
 
-export async function GET(request, { params }) {
+export async function GET(
+  request: Request,
+  { params }: { params: { blogapi: string } },
+) {
   try {
     await connectDb();
     let { blogapi } = await params;
