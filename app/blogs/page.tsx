@@ -4,7 +4,7 @@ import React from "react";
 import Button from "@/components/blogsBtn/Button";
 
 interface blogsAll {
-  id: number;
+  _id: string;
   title: string;
 }
 async function blogsHomePage() {
