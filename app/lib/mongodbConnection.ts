@@ -6,7 +6,7 @@ let connectDb = async () => {
   if (catched.conn) {
     return catched.conn;
   }
-  catched.conn = await mongoose.connect(process.env.MONGODB_URI);
+  catched.conn = await mongoose.connect(process.env.MONGODB_URI as string);
   console.log("connected MongoDB");
   return catched.conn;
 };
