@@ -3,7 +3,7 @@ import Blogmodel from "@/app/lib/models/postmodel";
 
 export async function GET(
   request: Request,
-  { params }: { params: { blogapi: string } },
+  { params }: { params: Promise<{ blogapi: string }> },
 ) {
   try {
     await connectDb();

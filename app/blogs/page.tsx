@@ -20,7 +20,7 @@ async function blogsHomePage() {
   return (
     <div className="px-3 py-4 sm:px-6 md:px-8 lg:px-10">
       {/* Header */}
-      <div className="mb-8 rounded-2xl bg-gradient-to-r from-black to-gray-700 p-4 text-white shadow-lg sm:p-6 md:p-8">
+      <div className="mb-8 rounded-2xl bg-gradient-to-r from-black to-gray-800 p-4 text-white shadow-lg sm:p-6 md:p-8">
         <h1 className="flex flex-col gap-2 text-2xl font-bold sm:flex-row sm:items-center sm:text-3xl md:text-4xl">
           All Blogs
           <span className="text-xs font-medium text-gray-300 sm:ml-3 sm:text-sm">
