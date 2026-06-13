@@ -5,7 +5,7 @@ export async function GET() {
   try {
     await connectDb();
     let blogData = await BlogModel.find();
-    console.log(blogData);
+    // console.log(blogData);
     return Response.json(blogData);
   } catch (error) {
     console.log(error);

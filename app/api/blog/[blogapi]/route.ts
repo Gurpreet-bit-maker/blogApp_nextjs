@@ -1,5 +1,5 @@
-import connectDb from "@/app/lib/mongodbConnection";
-import Blogmodel from "@/app/lib/models/postmodel";
+import connectDb from "@/lib/mongodbConnection";
+import Blogmodel from "@/lib/models/postmodel";
 
 export async function GET(
   request: Request,
