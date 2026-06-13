@@ -1,5 +1,5 @@
-import connectDb from "../../lib/mongodbConnection";
-import BlogModel from "../../lib/models/postmodel";
+import connectDb from "@/lib/mongodbConnection";
+import BlogModel from "@/lib/models/postmodel";
 
 export async function GET() {
   try {
