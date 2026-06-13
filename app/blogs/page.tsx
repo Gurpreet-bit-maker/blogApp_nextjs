@@ -10,7 +10,9 @@ interface blogsAll {
 async function blogsHomePage() {
   let blogs: blogsAll[] = [];
   try {
-    let response = await fetch("https://blog-app-nextjs-ssqw.vercel.app/api/blog");
+    let response = await fetch(
+      "https://blog-app-nextjs-ssqw.vercel.app/api/blog",
+    );
     blogs = await response.json();
     console.log("blogs are here ", blogs);
   } catch (error) {

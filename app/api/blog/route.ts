@@ -1,14 +1,16 @@
 import connectDb from "../../lib/mongodbConnection";
 import BlogModel from "../../lib/models/postmodel";
-export async function GET() {
-  await connectDb();
-  let blogData = await BlogModel.find();
-  console.log(blogData);
-  return Response.json(blogData);
-}
-// export async function GET(){
 
-// }
+export async function GET() {
+  try {
+    await connectDb();
+    let blogData = await BlogModel.find();
+    console.log(blogData);
+    return Response.json(blogData);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 export async function POST(request: Request) {
   try {
@@ -22,3 +24,5 @@ export async function POST(request: Request) {
     return Response.json({ message: "error hai " }, { status: 500 });
   }
 }
+
+// document.body.div.style = "red"

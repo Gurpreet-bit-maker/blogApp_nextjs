@@ -11,7 +11,7 @@ function AddBlog() {
     // formData.append("avtar", img);
     // if (blogtext == "") return;
     try {
-      let sendingBlog = await fetch("https://blog-app-nextjs-ssqw.vercel.app/api/blog", {
+      let sendingBlog = await fetch("/api/blog", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ title: blogtext }),
