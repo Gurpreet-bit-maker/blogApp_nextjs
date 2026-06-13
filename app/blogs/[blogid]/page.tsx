@@ -12,9 +12,12 @@ interface userBlog {
 async function singleBlog({ params }: { params: blogType }) {
   let { blogid } = await params;
   console.log("blogId here", blogid);
-  let singleBlog = await fetch(`"https://blog-app-nextjs-ssqw.vercel.app/api/blog"/${blogid}`, {
-    cache: "no-cache",
-  });
+  let singleBlog = await fetch(
+    `https://blog-app-nextjs-ssqw.vercel.app/api/blog/${blogid}`,
+    {
+      cache: "no-cache",
+    },
+  );
   let response: userBlog = await singleBlog.json();
   console.log("blogId json", response);
   //? resnponsived for all sizes
