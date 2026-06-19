@@ -15,3 +15,18 @@ export async function GET(
     return Response.json({ status: 500 });
   }
 }
+
+export async function DELETE(
+  request: Request,
+  { params }: { params: Promise<{ blogapi: string }> },
+) {
+  try {
+    await connectDb();
+    let { blogapi } = await params;
+    let deleted = await Blogmodel.findByIdAndDelete(blogapi);
+    return Response.json(deleted);
+  } catch (error) {
+    console.log(error);
+    return Response.json({ status: 500 });
+  }
+}

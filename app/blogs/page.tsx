@@ -2,6 +2,7 @@
 export const dynamic = "force-dynamic";
 import React from "react";
 import Button from "@/components/blogsBtn/Button";
+import BlogDelBtn from "@/components/blogsBtn/BlogDelBtn";
 
 interface blogsAll {
   _id: string;
@@ -60,8 +61,9 @@ async function blogsHomePage() {
                 </div>
               </div>
 
-              <div className="mt-5 flex justify-center sm:justify-end">
+              <div className="mt-5 flex justify-center sm:justify-between">
                 <Button blogId={item._id} />
+                <BlogDelBtn blogs={blogs} blogId={item._id}/>
               </div>
             </div>
           );
