@@ -39,6 +39,7 @@ function Navbar() {
               </Link>
             </li>
             <li>dummy</li>
+            <li>newmore</li>
           </div>
         </ul>
       </div>
