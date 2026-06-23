@@ -38,8 +38,6 @@ function Navbar() {
                 Add Blog
               </Link>
             </li>
-            <li>dummy</li>
-            <li>newmore</li>
           </div>
         </ul>
       </div>

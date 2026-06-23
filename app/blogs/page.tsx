@@ -3,22 +3,55 @@ export const dynamic = "force-dynamic";
 import React from "react";
 import Button from "@/components/blogsBtn/Button";
 import BlogDelBtn from "@/components/blogsBtn/BlogDelBtn";
+import Search from "@/components/blogs/Search";
+import Filtring from "@/components/blogs/Filtring";
 
 interface blogsAll {
   _id: string;
   title: string;
 }
-async function blogsHomePage() {
+type blog = {
+  _id: string;
+  title: string;
+};
+async function blogsHomePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ search?: string }>;
+}) {
+  let { search } = await searchParams;
+  console.log("clear", search);
+
   let blogs: blogsAll[] = [];
+  let isTyping: boolean = false;
+  // console.log(isTyping);
+
   try {
     let response = await fetch(
       "https://blog-app-nextjs-ssqw.vercel.app/api/blog",
+      { cache: "no-cache" },
     );
     blogs = await response.json();
-    console.log("blogs are here ", blogs);
+    // console.log("blogs are here ", blogs);
   } catch (error) {
     console.log("this side is error", error);
   }
+
+  let filtered: blog[] = blogs.filter((item) =>
+    item.title.toLocaleLowerCase().includes(`${search}`),
+  );
+
+  if (search == "short") {
+    filtered = blogs.filter((item) => item.title.length < 5);
+    console.log(filtered);
+  }
+  if (search == "long") {
+    filtered = blogs.filter((item) => item.title.length > 20);
+  }
+  // console.log(filtered);
+
+  console.log(blogs);
+
   //? resnponsived for all sizes
   return (
     <div className="px-3 py-4 sm:px-6 md:px-8 lg:px-10">
@@ -35,10 +68,12 @@ async function blogsHomePage() {
           Explore all latest posts and updates in one place.
         </p>
       </div>
-
+      <Filtring />
+      {/* filter component render */}
+      <Search />
       {/* Blog List */}
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-        {blogs.map((item, index) => {
+        {filtered.map((item, index) => {
           return (
             <div
               key={item._id}
@@ -63,7 +98,7 @@ async function blogsHomePage() {
 
               <div className="mt-5 flex justify-center sm:justify-between">
                 <Button blogId={item._id} />
-                <BlogDelBtn blogs={blogs} blogId={item._id}/>
+                <BlogDelBtn blogs={blogs} blogId={item._id} />
               </div>
             </div>
           );

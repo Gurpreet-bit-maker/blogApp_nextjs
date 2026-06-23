@@ -6,7 +6,7 @@ interface blogsAll {
 }
 
 function BlogDelBtn({ blogId, blogs }: { blogId: string; blogs: blogsAll[] }) {
-  console.log("blogDeleteBtn", blogId);
+  // console.log("blogDeleteBtn", blogId);
 
   let deleteBlog = async () => {
     let deleted = await fetch(
