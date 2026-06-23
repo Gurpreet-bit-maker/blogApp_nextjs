@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 function Button({ blogId }: { blogId: string }) {
   let [blogNum, setBlogNum] = useState<string>();
-  console.log(blogId);
+  // console.log(blogId);
   return (
     <div className="flex justify-center">
       <Link href={`/blogs/${blogId}`}>
